@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial BTSerial(10, 11); // RX | TX
+SoftwareSerial BTSerial(11, 10); // RX | TX
 
 #define END_CMD_CHAR '\n'
 #define RET_CMD_CHAR '\r'
@@ -9,8 +9,9 @@ void setup()
 { 
   /*
    * El pin 9 serveix par alimentar el mòdul BT. Aquests tipus de mòduls tant funcionen a 3.3v com 5v.
-   * Si el connectem al pin 9 el seu voltatge serà de 3.3v. Si vulguéssim treballar a 5v l'hauríem de
-   * connectar a aquell pin de l'arduino que tingués aquest voltatge.
+   * Si el connectem al pin 9 el seu voltatge serà de 3.3v o 5v depenent de l'arduino. Si vulguéssim 
+   * sempre treballar a 5v l'hauríem de connectar a aquell pin de l'arduino que tingués aquest voltatge.
+   * Encara que puguem treballar a 3.3v, millor treballar a 5v.
    */
   pinMode(9, OUTPUT);  
   digitalWrite(9, HIGH);
