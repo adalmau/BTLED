@@ -8,10 +8,10 @@ SoftwareSerial BTSerial(11, 10); // RX | TX
 void setup()
 { 
   /*
-   * El pin 9 serveix par alimentar el mòdul BT. Aquests tipus de mòduls tant funcionen a 3.3v com 5v.
+   * El pin 9 serveix par alimentar el mòdul BT. Aquests tipus de mòduls funcionen de 3.6v a 6v.
    * Si el connectem al pin 9 el seu voltatge serà de 3.3v o 5v depenent de l'arduino. Si vulguéssim 
    * sempre treballar a 5v l'hauríem de connectar a aquell pin de l'arduino que tingués aquest voltatge.
-   * Encara que puguem treballar a 3.3v, millor treballar a 5v.
+   * Encara que puguem treballar a 3.6v, millor treballar a 5v.
    */
   pinMode(9, OUTPUT);  
   digitalWrite(9, HIGH);
@@ -30,8 +30,7 @@ void setup()
   Serial.println("Enter AT commands:");
 
   // Inicialitzar el port sèrie del bluetooth per intercomunicar-nos amb el mòbils, PCs, etc.
-  BTSerial.begin(38400);  // HC-05 default speed in AT command more
-
+  BTSerial.begin(38400);  // HC-05 default speed in AT command mode.
   // Fer que els pins 5, 6 i 7 siguin de sortida perquè és on es connectarà el LED RGB
   for (int i = 5 ; i <= 7 ; i++)
     pinMode(i, OUTPUT);
